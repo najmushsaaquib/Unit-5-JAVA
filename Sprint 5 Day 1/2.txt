@@ -1,0 +1,76 @@
+
+ create table MOVIE(id varchar(1), title varchar(20), Director varchar(30), year int(5), length_minutes int(5));
+Query OK, 0 rows affected, 2 warnings (0.08 sec)
+
+mysql> insert into MOVIE values(1, "Toy Story", "John Lasseter", 1995, 81);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into MOVIE values(2, "A Bug's Life", "John Lasseter", 1998, 95),
+    -> (3, "Toy Story 2", "John Lasseter", 1999, 93),
+    -> (3, "Monsters, Inc", "Pete Docter", 2001, 92),
+    -> (5, "Civil War", "Andrew Stanton", 2003, 107),
+    -> (6, "The Incredibles", "Brad Bird", 2004, 116);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from MOVIE;
++------+-----------------+----------------+------+----------------+
+| id   | title           | Director       | year | length_minutes |
++------+-----------------+----------------+------+----------------+
+| 1    | Toy Story       | John Lasseter  | 1995 |             81 |
+| 2    | A Bug's Life    | John Lasseter  | 1998 |             95 |
+| 3    | Toy Story 2     | John Lasseter  | 1999 |             93 |
+| 3    | Monsters, Inc   | Pete Docter    | 2001 |             92 |
+| 5    | Civil War       | Andrew Stanton | 2003 |            107 |
+| 6    | The Incredibles | Brad Bird      | 2004 |            116 |
++------+-----------------+----------------+------+----------------+
+6 rows in set (0.00 sec)
+
+ create table Movie_Rating(movie_id int(2), rating varchar(5), domestic_sales int(12), international_sales int(12));
+insert into Movie_Rating values(2, 7.4, 268459782, 524564125),
+    -> (3, 8, 206445654, 475066843),
+    -> (4, 6.4, 194546874, 368400000),
+    -> (5, 7.9, 194544574, 194124658),
+    -> (6, 8, 898425489, 415874585);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from Movie_Rating;
++----------+--------+----------------+---------------------+
+| movie_id | rating | domestic_sales | international_sales |
++----------+--------+----------------+---------------------+
+|        1 | 8.2    |      380843261 |           555900000 |
+|        2 | 7.4    |      268459782 |           524564125 |
+|        3 | 8      |      206445654 |           475066843 |
+|        4 | 6.4    |      194546874 |           368400000 |
+|        5 | 7.9    |      194544574 |           194124658 |
+|        6 | 8      |      898425489 |           415874585 |
++----------+--------+----------------+---------------------+
+6 rows in set (0.00 sec)
+
+=>  select title, domestic_sales, international_sales from Movie JOIN Movie_Rating ON Movie.id=Movie_Rating.movie_id where domestic_sales < international_sales;
++---------------+----------------+---------------------+
+| title         | domestic_sales | international_sales |
++---------------+----------------+---------------------+
+| Toy Story     |      380843261 |           555900000 |
+| A Bug's Life  |      268459782 |           524564125 |
+| Toy Story 2   |      206445654 |           475066843 |
+| Monsters, Inc |      194546874 |           368400000 |
++---------------+----------------+---------------------+
+4 rows in set (0.00 sec)
+
+==============================================================================================================================================================================
+
+
+  select title, rating from Movie JOIN Movie_Rating ON Movie.id=Movie_Rating.movie_id ORDER BY rating DESC;
++-----------------+--------+
+| title           | rating |
++-----------------+--------+
+| Toy Story       | 8.2    |
+| Toy Story 2     | 8      |
+| The Incredibles | 8      |
+| Civil War       | 7.9    |
+| A Bug's Life    | 7.4    |
+| Monsters, Inc   | 6.4    |
++-----------------+--------+
+

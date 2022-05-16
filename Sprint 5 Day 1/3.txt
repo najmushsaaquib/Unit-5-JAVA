@@ -1,0 +1,33 @@
+4.
+
+create table Person(personid int(2), lastName varchar(12), firstName varchar(12));
+ insert into Person values(1,"Wang", "Alien"),
+    -> (2, "Alice", "Bob");
+ select * from Person;
++----------+----------+-----------+
+| personid | lastName | firstName |
++----------+----------+-----------+
+|        1 | Wang     | Alien     |
+|        2 | Alice    | Bob       |
++----------+----------+-----------+
+
+
+ create table Address(addressid int(1), personid int(2), city varchar(12), state varchar(12));
+insert into Address values(1,2,"Brooklyn", "New York"),
+    -> (2,3,"San Diego", "California");
+ select * from Address;
++-----------+----------+-----------+------------+
+| addressid | personid | city      | state      |
++-----------+----------+-----------+------------+
+|         1 |        2 | Brooklyn  | New York   |
+|         2 |        3 | San Diego | California |
++-----------+----------+-----------+------------+
+
+
+select firstName, lastName, city, state from Person LEFT JOIN Address ON Person.personid=Address.personid;
++-----------+----------+----------+----------+
+| firstName | lastName | city     | state    |
++-----------+----------+----------+----------+
+| Alien     | Wang     | NULL     | NULL     |
+| Bob       | Alice    | Brooklyn | New York |
++-----------+----------+----------+----------+
