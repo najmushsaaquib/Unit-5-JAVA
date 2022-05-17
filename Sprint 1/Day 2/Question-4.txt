@@ -1,0 +1,69 @@
+mysql> create table students (
+    -> student_id int (3),
+    -> name varchar(15),
+    -> address varchar(25),
+    -> PRIMARY KEY (student_id));
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+
+mysql> create table marks(
+    -> marks_id int(3),
+    -> subject varchar(15),
+    -> score int (5),
+    -> student_id int (3),
+    -> PRIMARY KEY (marks_id),
+    -> FOREIGN KEY (student_id) REFERENCES students (student_id)
+    -> );
+Query OK, 0 rows affected, 3 warnings (0.03 sec)
+
+
+
+mysql> insert into students values (1, "Rahul Kumar", "DELHI"),
+     (2, "Raja Yadav", "SAKET"),
+     (3, "Najmush Saaquib", "BADARPUR"),
+     (4, "Satyajeet", "ODISHA"),
+     (5, "Aman Yadav", "BIHAR"),
+     (6, "Rahul 2.0", "BIHAR"),
+     (7, "Moni", "DELHI"),
+     (8, "Ishi", "DOON");
+
+
+   insert into marks values (101, "Maths", 417, 1),
+	(102, "English", 499, 2),
+	(103, "Hindi" , 333, 3),
+	(104, "Urdu" , 455, 4),
+	(105, "Physics" , 399, 5),
+	(103, "Hindi" , 215, 1), 
+
+
+
+select
+     case
+     when department = 'hss' then 'hss'
+     when department = 'cs' then 'cs'
+     else 'no data'
+    end
+    as new_dept,
+    count(1) as count
+from faculty
+group by 1
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
