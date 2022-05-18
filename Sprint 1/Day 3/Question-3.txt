@@ -1,0 +1,13 @@
+--Primary Key
+-> Primary Key is an Attribute of a column in SQl it uniquely identifies a column, It is just as a Unique key,
+but here, Null values are not accepted.
+
+--Candidate Key
+-> Those Attributes Or Keys in a table which holds Unique value, it can also hold null values are known
+   as Candidate Key. Every Primary Key is a Candidate Key but not every Candidte Key can become Primary Key.
+
+--Prime Attributes
+->The column which is having Candidate Key is Prime attribute, 
+--Non-Prime Attributes
+->The column which are not Uniquely identifies, i.e., are not part of any Candidate key,
+are known as Non-Prime Attributes.

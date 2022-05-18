@@ -1,0 +1,5 @@
+create table student (id int, name varchar(15), age int, subject varchar(15));
+
+-- expressing in 1NF 
+	
+	insert into student values (

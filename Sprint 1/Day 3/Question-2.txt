@@ -1,0 +1,51 @@
+create table Faculty(FacultyID varchar(3), Name varchar(12), Department varchar(5), Gender char(2), Salary int(8), Working_hours int(4));
+Query OK, 0 rows affected, 2 warnings (0.21 sec)
+
+mysql> insert into Faculty values("001", "Aakash", "CS", "M", 50000, 45);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Faculty values("002", "Sahil", "ES", "M", 25000, 50),
+    -> ("003", "John", "HSS", "M", 100000, 60),
+    -> ("004", "Shelley", "CS", "F", 75000, 80),
+    -> ("005", "Ananya", "CS", "F", 45000, 100),
+    -> ("006", "Sia", "HSS", "F", 60000, 40);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from Faculty;
++-----------+---------+------------+--------+--------+---------------+
+| FacultyID | Name    | Department | Gender | Salary | Working_hours |
++-----------+---------+------------+--------+--------+---------------+
+| 001       | Aakash  | CS         | M      |  50000 |            45 |
+| 002       | Sahil   | ES         | M      |  25000 |            50 |
+| 003       | John    | HSS        | M      | 100000 |            60 |
+| 004       | Shelley | CS         | F      |  75000 |            80 |
+| 005       | Ananya  | CS         | F      |  45000 |           100 |
+| 006       | Sia     | HSS        | F      |  60000 |            40 |
++-----------+---------+------------+--------+--------+---------------+
+6 rows in set (0.01 sec)
+
+
+
+
+
+mysql> select *,
+    ->      CASE
+    ->     WHEN Working_hours <= 50 THEN "Not Allowed"
+    ->      WHEN Working_hours <= 80 THEN 20
+    ->      WHEN Working_hours <= 120 THEN 40
+    ->     END
+    ->      AS Vacation_Hours
+    ->      FROM
+    ->      Faculty;
++-----------+---------+------------+--------+--------+---------------+----------------+
+| FacultyID | Name    | Department | Gender | Salary | Working_hours | Vacation_Hours |
++-----------+---------+------------+--------+--------+---------------+----------------+
+| 001       | Aakash  | CS         | M      |  50000 |            45 | Not Allowed    |
+| 002       | Sahil   | ES         | M      |  25000 |            50 | Not Allowed    |
+| 003       | John    | HSS        | M      | 100000 |            60 | 20             |
+| 004       | Shelley | CS         | F      |  75000 |            80 | 20             |
+| 005       | Ananya  | CS         | F      |  45000 |           100 | 40             |
+| 006       | Sia     | HSS        | F      |  60000 |            40 | Not Allowed    |
++-----------+---------+------------+--------+--------+---------------+----------------+
+6 rows in set (0.01 sec)
