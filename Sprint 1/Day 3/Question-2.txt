@@ -1,51 +1,36 @@
-create table Faculty(FacultyID varchar(3), Name varchar(12), Department varchar(5), Gender char(2), Salary int(8), Working_hours int(4));
-Query OK, 0 rows affected, 2 warnings (0.21 sec)
+Creating tabke in 1NF--
 
-mysql> insert into Faculty values("001", "Aakash", "CS", "M", 50000, 45);
-Query OK, 1 row affected (0.03 sec)
+ create table Business(Customer_id int, StoreId varchar(3), location varchar(20));
+Query OK, 0 rows affected (0.05 sec)
 
-mysql> insert into Faculty values("002", "Sahil", "ES", "M", 25000, 50),
-    -> ("003", "John", "HSS", "M", 100000, 60),
-    -> ("004", "Shelley", "CS", "F", 75000, 80),
-    -> ("005", "Ananya", "CS", "F", 45000, 100),
-    -> ("006", "Sia", "HSS", "F", 60000, 40);
-Query OK, 5 rows affected (0.01 sec)
-Records: 5  Duplicates: 0  Warnings: 0
+mysql> insert into Business values(1,"D1", "Toronto");
+Query OK, 1 row affected (0.02 sec)
 
-mysql> select * from Faculty;
-+-----------+---------+------------+--------+--------+---------------+
-| FacultyID | Name    | Department | Gender | Salary | Working_hours |
-+-----------+---------+------------+--------+--------+---------------+
-| 001       | Aakash  | CS         | M      |  50000 |            45 |
-| 002       | Sahil   | ES         | M      |  25000 |            50 |
-| 003       | John    | HSS        | M      | 100000 |            60 |
-| 004       | Shelley | CS         | F      |  75000 |            80 |
-| 005       | Ananya  | CS         | F      |  45000 |           100 |
-| 006       | Sia     | HSS        | F      |  60000 |            40 |
-+-----------+---------+------------+--------+--------+---------------+
-6 rows in set (0.01 sec)
+mysql> insert into Business values(2,"D2", "Miami"),
+    -> (3,"D3", "Florida"),
+    -> (4,"D4", "Texas"),
+    -> (5,"D5", "California");
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
 
+mysql> select * from Business;
++-------------+---------+------------+
+| Customer_id | StoreId | location   |
++-------------+---------+------------+
+|           1 | D1      | Toronto    |
+|           2 | D2      | Miami      |
+|           3 | D3      | Florida    |
+|           4 | D4      | Texas      |
+|           5 | D5      | California |
++-------------+---------+------------+
+5 rows in set (0.00 sec)
 
+================================================================================================================
 
+This table is already Normalized with 2NF, because as we can see Prime attributes and non prime attributes are already
+Unique and Location is funcionally dependent on Candidate key.
 
+Rules for 2NF-
+--> It should be in 1NF
+--> All non prime attributes should be functional depedendent on the Candidate key.
 
-mysql> select *,
-    ->      CASE
-    ->     WHEN Working_hours <= 50 THEN "Not Allowed"
-    ->      WHEN Working_hours <= 80 THEN 20
-    ->      WHEN Working_hours <= 120 THEN 40
-    ->     END
-    ->      AS Vacation_Hours
-    ->      FROM
-    ->      Faculty;
-+-----------+---------+------------+--------+--------+---------------+----------------+
-| FacultyID | Name    | Department | Gender | Salary | Working_hours | Vacation_Hours |
-+-----------+---------+------------+--------+--------+---------------+----------------+
-| 001       | Aakash  | CS         | M      |  50000 |            45 | Not Allowed    |
-| 002       | Sahil   | ES         | M      |  25000 |            50 | Not Allowed    |
-| 003       | John    | HSS        | M      | 100000 |            60 | 20             |
-| 004       | Shelley | CS         | F      |  75000 |            80 | 20             |
-| 005       | Ananya  | CS         | F      |  45000 |           100 | 40             |
-| 006       | Sia     | HSS        | F      |  60000 |            40 | Not Allowed    |
-+-----------+---------+------------+--------+--------+---------------+----------------+
-6 rows in set (0.01 sec)

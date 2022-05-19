@@ -1,5 +1,79 @@
-create table student (id int, name varchar(15), age int, subject varchar(15));
+ create table Express(ID int, Name varchar(12), Age int, Subject varchar(20));
+Query OK, 0 rows affected (0.12 sec)
 
--- expressing in 1NF 
-	
-	insert into student values (
+insert into Express values(1, "Abc", 18,"DBMS"),
+    -> (1, "Abc", 18,"OS"),
+    -> (2, "DEF", 18,"DBMS"),
+    -> (3, "GHI", 20,"JAVA");
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from Express;
++------+------+------+---------+
+| ID   | Name | Age  | Subject |
++------+------+------+---------+
+|    1 | Abc  |   18 | DBMS    |
+|    1 | Abc  |   18 | OS      |
+|    2 | DEF  |   18 | DBMS    |
+|    3 | GHI  |   20 | JAVA    |
++------+------+------+---------+
+4 rows in set (0.00 sec)
+
+================================================================================
+Now to above Table follows 1NF.
+***Rules for 1NF
+-->No Columns should be repeating.
+-->Data should be in a 2D Table, i.e., Data should be stored in SQL format. create table Express(ID int, Name varchar(12), Age int, Subject varchar(20));
+Query OK, 0 rows affected (0.12 sec)
+
+insert into Express values(1, "Abc", 18,"DBMS"),
+    -> (1, "Abc", 18,"OS"),
+    -> (2, "DEF", 18,"DBMS"),
+    -> (3, "GHI", 20,"JAVA");
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from Express;
++------+------+------+---------+
+| ID   | Name | Age  | Subject |
++------+------+------+---------+
+|    1 | Abc  |   18 | DBMS    |
+|    1 | Abc  |   18 | OS      |
+|    2 | DEF  |   18 | DBMS    |
+|    3 | GHI  |   20 | JAVA    |
++------+------+------+---------+
+4 rows in set (0.00 sec)
+
+================================================================================
+Now to above Table follows 1NF.
+***Rules for 1NF
+-->No Columns should be repeating.
+-->Data should be in a 2D Table, i.e., Data should be stored in SQL format. create table Express(ID int, Name varchar(12), Age int, Subject varchar(20));
+Query OK, 0 rows affected (0.12 sec)
+
+insert into Express values(1, "Abc", 18,"DBMS"),
+    -> (1, "Abc", 18,"OS"),
+    -> (2, "DEF", 18,"DBMS"),
+    -> (3, "GHI", 20,"JAVA");
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+
+-- Expressing  Table in 1NF 
+
+mysql> select * from Express;
++------+------+------+---------+
+| ID   | Name | Age  | Subject |
++------+------+------+---------+
+|    1 | Abc  |   18 | DBMS    |
+|    1 | Abc  |   18 | OS      |
+|    2 | DEF  |   18 | DBMS    |
+|    3 | GHI  |   20 | JAVA    |
++------+------+------+---------+
+4 rows in set (0.00 sec)
+
+================================================================================
+
+		--Rules for 1NF
+-->No Columns should be repeating.
+-->Data should be in a 2D Table, i.e., Data should be stored in SQL format.

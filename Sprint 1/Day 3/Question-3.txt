@@ -1,13 +1,7 @@
---Primary Key
--> Primary Key is an Attribute of a column in SQl it uniquely identifies a column, It is just as a Unique key,
-but here, Null values are not accepted.
+			--Indexes
 
---Candidate Key
--> Those Attributes Or Keys in a table which holds Unique value, it can also hold null values are known
-   as Candidate Key. Every Primary Key is a Candidate Key but not every Candidte Key can become Primary Key.
+->  We create indexes when our main intension is retrieving data from the table or a Column of a table,
+ It just reduce the time of the operation, i.e, noraml seaerchig operation use extensive amount of time,
+but, Indexing reducces the operation time, It just gives memory location to the tuples.
 
---Prime Attributes
-->The column which is having Candidate Key is Prime attribute, 
---Non-Prime Attributes
-->The column which are not Uniquely identifies, i.e., are not part of any Candidate key,
-are known as Non-Prime Attributes.
+create index indx_name ON Students(Name);
