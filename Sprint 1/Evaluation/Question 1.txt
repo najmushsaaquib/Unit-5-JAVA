@@ -1,0 +1,93 @@
+mysql> CREATE TABLE customers (
+    -> customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> first_name VARCHAR(255) NOT NULL,
+    -> last_name VARCHAR(255) NOT NULL,
+    -> email VARCHAR(255) NOT NULL,
+    -> address VARCHAR(255) DEFAULT NULL,
+    -> city VARCHAR(255) DEFAULT NULL,
+    -> state VARCHAR(2) DEFAULT NULL,
+    -> zip_code VARCHAR(5) DEFAULT NULL
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE orders (
+    -> order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> customer_id INT NOT NULL,
+    -> order_placed_date DATE NOT NULL,
+    -> FOREIGN KEY (customer_id) REFERENCES customers
+    -> (customer_id)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+
+mysql> insert into customers values (1, "Rohit", "Kumar", "rohit@yahoo.com", "Badarpur", "DELHI", "DL", "11055"),
+          (2, "Farhan", "Akhtar", "farhan@gmail.com", "Jaitpur", "DELHI", "DL", "11025"),
+          (3, "Rahul", "Kumar", "rahul@gmail.com", "Patna", "Bihar", "BR", "22005"),
+          (4, "Diljeet", "Dosanj", "diljeet@gmail.com", "Chandigarh", "Punjab", "PJ", "11005"),
+          (5, "Simran", "Kaur", "simran@gmail.com", "Chandigarh", "Punjab", "PJ", "11005");
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> insert into orders values (11, 1, "2016-04-05"),
+    -> (15, 1, "2016-04-15"),
+    -> (17, 4, "2016-07-17"),
+    -> (19, 4, "2016-08-04"),
+    -> (21, 4, "2016-08-05"),
+    -> (22, 4, "2016-08-07"),
+    -> (25, 3, "2016-08-12"),
+    -> (27, 3, "2016-08-27"),
+    -> (29, 5, "2016-09-02"),
+    -> (32, 5, "2016-09-05"),
+    -> (33, 2, "2016-09-09"),
+    -> (35, 2, "2016-09-19")
+    -> ;
+Query OK, 12 rows affected (0.01 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+select email, count from customers JOIN (select customer_id,COUNT(customer_id) as count from orders group by customer_id ORDER BY COUNT DESC) ON customers = customers.id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

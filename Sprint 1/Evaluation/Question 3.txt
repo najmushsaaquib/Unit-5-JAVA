@@ -1,0 +1,48 @@
+
+a) Explain the ACID properties.
+			 ACID
+               A=> Atomicity;
+               C=> Consistency
+               I=> Isolation
+	       D=> Durability
+    
+Atomicity :> It can be defined as process in which entire transaction takes place in one go Or does not happen at all;
+
+Consistancy : This means if the data was in a consistent state before a transaction, then it must be in the consistent state after performing any transaction.
+
+Isolation : It means multiple Transaction can occur independentaly without disturbing one another.
+
+Durability : After completion of every  transaction, all the changes made during the transaction must be stored in a permanent systme somewhere so that we can retrieve it anytime we need.
+
+Example : There are two People A and B
+	
+A account balance - (5000)
+B account balance - (3500)	
+Total Balance = 8500
+
+Transfer amount of 500 from B to A
+Transaction stars here -
+check if the both Accounts are active
+check if both have sufficient fund to complete the transaction
+
+B balance - 500
+A balance  +500
+
+End of transaction;
+
+Amount in A account = 6000
+Amount in B account = 3000
+
+
+
+B)  Disadvantages of indexing ---
+	
+While creating a index for a column in order to refine your search queries, it also takes extra space in the memory.
+Also, when we modify our database or fire any query which requries that the Data should be deleted
+	or new data shoudl be enterd. These queries are very expensive since indexing is done,
+	and data is being shifted from one place to another in order to maintain the indexing. Hence creating a expenisive query
+
+
+
+
+

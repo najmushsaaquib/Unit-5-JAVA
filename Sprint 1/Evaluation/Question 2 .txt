@@ -1,0 +1,64 @@
+a)
+
+-------------------------------------Normalization--------------------------------
+
+=> To organize the data into the database, in such a way that it avoids duplicacy (data redundancy) and to avoid the anomaly (something which is not normal) of insertion, upddation and deletion, we use a process called Normalization.
+
+=> Need of Normalization ?
+	
+	If we do not normalize our Database, we may face multiple anomalies;
+	for example;
+
+	Update Anomaly -> Let's assume we have a Employee table in which we have 4 rows;
+
+	Emp_roll  Emp_name     Emp_address    Emp_Dept(Not Null)
+	07 	Raj  		Delhi 		D05
+	07	Raj 		Delhi 		D02
+	12 	Ratan 		Mumbai 		D01
+	25 	Najmush 	Bihar 		D07
+	25 	Najmush 	Bihar 		D09
+	
+	As you can see "Raj" is working in multiple dept, hence having multipe rows. If in future,
+	we need to update the address of Raj, we will have to update the details in both the rows or 
+	the data will become inconsistent.
+	
+	If address is updated in a single dept, then Raj will have multiple address in the Database,
+	which is not Correct.
+
+	Insertion Anomaly -> Lets assume tommorrow someone starts working for the same firm and is not
+	being assigned to any dept, then will not able to update his/her details in the database;
+
+	Delete Anomaly -> In future if the company decides to remove a particular dept then in this case
+	let assumer dept D01 is being removed, then the Data of the Employee Ratan will also be deleted 
+	from the Database which is again not correct.
+
+	To avoid these anomalies, we need to normalize our Database;
+
+
+
+b)
+
+
+
+--------------------------------------------------2NF (2nd Normal form)--------------------------------------------------------
+A table is said to be in 2NF when it is meets all the rules for 1NF
+Also every non-Prime attribute is fully dependent on Prime attribute.
+
+
+ CREATE TABLE SCHEMA.Employees((EmpId int(5) Primary KEY,ProjectId int(5) UNIQUE KEY, EmpName varchar(15), ProjectName varchar(20));
+
+As you can see in the upper table it is following 1NF but violating 2NF, because there Non-Prime attributes are partially dependent on the Candidate key,
+but we need fully dpendencies.
+
+Hence, converting  this table into 2NF.
+
+CREATE TABLE SCHEMA.Employee_Details(EmpID int(5) PRIMARY KEY, ProjectId int(5) FOREIGN KEY REFERENCES(ProjectInfo), EmpName varhcar(15));
+
+CREATE TABLE SCEHMA.ProjectInfo(ProjectId int(5) PRIMARY KEY, ProjectName varchar(20));
+
+As you can see now from the schema itself our both Non-Prime attributes are fully dependent on Prime attribute(Candidate Keys), So now the data is is in 2NF.
+
+
+
+	
+	
