@@ -1,0 +1,41 @@
+a) Advantages of using spring boot over spring are :-
+
+	i) 	Spring boot allows to write shrot length of codes as compared to spring.
+ 	ii)	Spring boot makes it easy to develop stand-alone applications with less configuration.
+	iii)	Spring boot is primaraily famous for Autoconfiguration. It automatically configures the classes based on 		the requirements. As compared to Spring which uses dependency injection.
+	iv) 	Spring Boot offers preinstalled or embedded server for example Tomcat server.
+	v)	There are several plugins available for Spring Boot that offers extra functionality.
+
+	Above written points are some advantages of Spring Boot over spring.
+
+b) Explain types of Bean Scopes and Explain any two of them.
+	
+	The life span of an object of Spring bean is known as its Bean Scope.
+	
+	Spring framework has 4 scopes of a bean object:
+	1) Singelton scope  2) prototype scope  3) request scope  4) session scope
+
+	
+	i) Singleton scope :-
+		
+		singleton scope returns the same object for all the getBean() method calling with the same bean id.
+		
+		for exmple: 
+		
+		Student s1 = ctx.getBean("s1", Student.class;
+		Student s2 = ctx.getBean("s1", Student.class);
+		
+		System.out.println(s1 == s2); // output is true
+
+
+
+	ii) Prototype scope  :-
+		
+		it retunrs a seperate bean object each time we call getBean() method even if we provide same id also.
+		
+		for exmple: 
+		
+		Student s1 = ctx.getBean("s1", Student.class;
+		Student s2 = ctx.getBean("s1", Student.class);
+		
+		System.out.println(s1 == s2); // output is false

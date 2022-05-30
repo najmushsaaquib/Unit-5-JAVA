@@ -1,0 +1,26 @@
+1) SOAP- based webservices :-
+	
+	SOAP ( simple object access protocol ) is an XML based protocol. it is used to communicate between the client application and the server application.
+	
+	Since, it is XML based, it is both platform and language indepenent.
+	
+	for example :-
+	
+	<employee>
+	<empId> 111 </empId>
+	<name> Ratan </name>
+	<age> 42 </age>
+	<adrress> Delhi </address>
+	</employee>
+	
+	SOAP is generally heavyweight when it comes to creating a web service since it requires some extra classes to parse the  XML files and convert them into 		Objects and vice-versa.
+
+
+2) Restful Web services :-
+	
+	Since SOAP is heavyweight and its also costly in operations, we need something else to make things lighter, that is where REST (Representational State 		transfer) comes into play.
+	
+	REST architecture is light-weight as compared to SOAP since it creates the web servies and exposed them through HTTP protocol. Also it doesn't need any 		extra classes to parse XML files.
+	
+	We can build restful web services with both XML  and JSON.
+	Although JSON is used worldwide and it is more popular as well.

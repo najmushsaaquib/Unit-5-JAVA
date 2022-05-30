@@ -1,0 +1,64 @@
+a) What is difference between @RestController and @Controller ?
+
+i)	@Controller annotation is used on a class to indicate that it has all the logic inside that class which decides the flow of our application.
+	
+	When we use controller annotation, we also have to use  another annotaion called @ResponseBody on each of the handler method.
+
+	example : - 
+	
+	@Controller
+	class Demo{
+
+	@RequestMapping(value = "/hello", method = RequestMethod.GET) 
+	@ResponseBody
+	static String hello(){
+	
+		return "Using Controller Annotation";		
+		}	
+	
+	}
+
+
+	
+ii)	@RestController annotation is used to make restful web services. It is used on the class levels. It handles the requests made from the client. It handles 	requests like GET, PUT, POST, Delete
+	
+	when we use @RestController, we don't need to use @ResponseBody annotation anymore. Since it is 
+	@Controller + @ResponseBody = @RestController.
+
+	example :- 
+	
+	@RestController
+	class Demo{
+	
+		@GetMapping("/hello") 
+		static String hello(){
+	
+		return "Using RestController";		
+		}
+
+	}
+	
+
+
+
+
+b) What is the use of @Autowired annotation?Explain.
+
+
+	@Autowired annotation is used to basically auto-wire a bean into another bean. It enables us to implicitly  inject the object dependency.
+	
+	@Autowired annotation is used on only reference type vairable and not primitive variables.
+
+	for example :-	
+	@Autowired
+	private Student sone;   // This is valid
+
+	@Autowired
+	private int x;  // this is not valid
+	
+
+	If we use @Autowired annotation on any of the reference variable then we dont need to explicitly define the setter method(setter injection point) becuae at 		runtime container automatically defines the setter method for that field.
+
+	Note: Depedency becomes mandatory when we use @Autowired annotation on a vairiable.
+	
+ 
