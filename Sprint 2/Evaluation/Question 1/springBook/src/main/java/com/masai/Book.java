@@ -7,7 +7,9 @@ public class Book {
 	private String author;
 	private Integer price;
 
-	
+	public Book() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Book(Integer bookId, String name, String author, Integer price) {
 		super();

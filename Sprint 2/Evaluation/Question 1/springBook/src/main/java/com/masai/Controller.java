@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,4 +41,21 @@ public class Controller {
 		return "Book succesfully created," + book;
 	}
 
+	
+	@PutMapping(value = "/book/update/{margin}")
+	public String updateBook(@RequestBody Book book, @PathVariable("margin") Integer margin  ) {
+		
+		try {
+			
+			book.setPrice(book.getPrice() + margin);
+			
+			return "Margin was added in the price" + book;
+		} catch (Exception e) {
+			
+			return "Extra price was not added";
+		}
+		
+	}
+	
+	
 }
