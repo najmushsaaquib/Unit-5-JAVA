@@ -19,26 +19,26 @@ import com.masai.exceptions.ProductNotFound;
 public class GlobalExceptionHandler {
 
 	@ExceptionHandler(ProductNotFound.class)
-	public ResponseEntity<ErrorDetails> productNotFound(ProductNotFound pnf, WebRequest req) {
+	public ResponseEntity<ErroDetails> productNotFound(ProductNotFound pnf, WebRequest req) {
 
 		System.out.println("Inside Product not found Exceptin of Global Exception");
 
-		ErrorDetails error = new ErrorDetails(LocalDateTime.now(), pnf.getMessage(), req.getDescription(false));
+		ErroDetails error = new ErroDetails(LocalDateTime.now(), pnf.getMessage(), req.getDescription(false));
 
-		ResponseEntity<ErrorDetails> re = new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+		ResponseEntity<ErroDetails> re = new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 
 		return re;
 
 	}
 
 	@ExceptionHandler(NoHandlerFoundException.class)
-	public ResponseEntity<ErrorDetails> myExHandler(NoHandlerFoundException ie, WebRequest req) {
+	public ResponseEntity<ErroDetails> myExHandler(NoHandlerFoundException ie, WebRequest req) {
 
 		System.out.println("Inside Invalid URI Exception");
 
-		ErrorDetails error = new ErrorDetails(LocalDateTime.now(), ie.getMessage(), req.getDescription(false));
+		ErroDetails error = new ErroDetails(LocalDateTime.now(), ie.getMessage(), req.getDescription(false));
 
-		ResponseEntity<ErrorDetails> re = new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+		ResponseEntity<ErroDetails> re = new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 
 		return re;
 	}

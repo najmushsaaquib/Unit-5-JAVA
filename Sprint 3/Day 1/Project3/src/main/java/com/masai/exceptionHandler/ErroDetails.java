@@ -2,17 +2,17 @@ package com.masai.exceptionHandler;
 
 import java.time.LocalDateTime;
 
-public class ErrorDetails {
+public class ErroDetails {
 
 	private LocalDateTime timestamp;
 	private String message;
 	private String details;
 
-	public ErrorDetails() {
+	public ErroDetails() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ErrorDetails(LocalDateTime timestamp, String message, String details) {
+	public ErroDetails(LocalDateTime timestamp, String message, String details) {
 		super();
 		this.timestamp = timestamp;
 		this.message = message;
